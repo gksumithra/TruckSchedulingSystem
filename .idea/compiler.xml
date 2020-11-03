@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Truck" />
+        <module name="eureka-server" />
+        <module name="Vendor" />
+        <module name="DcSlots" />
+        <module name="api-gateway" />
+        <module name="DistributionCenter" />
+        <module name="AppointmentScheduling" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="kafka" target="11" />
+      <module name="kafka-comsumer" target="11" />
+      <module name="kafka-producer" target="11" />
+      <module name="kafka-springboot-consumer-demo" target="1.8" />
+      <module name="PoDownload" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AppointmentScheduling" options="-parameters" />
+      <module name="DcSlots" options="-parameters" />
+      <module name="DistributionCenter" options="-parameters" />
+      <module name="PoDownload" options="-parameters" />
+      <module name="Truck" options="-parameters" />
+      <module name="Vendor" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="kafka" options="-parameters" />
+      <module name="kafka-comsumer" options="-parameters" />
+      <module name="kafka-producer" options="-parameters" />
+      <module name="kafka-springboot-consumer-demo" options="-parameters" />
+    </option>
+  </component>
+</project>
