@@ -32,7 +32,7 @@ DcRespository dcRespository;
     {
         if(dcRespository.findById(dc.getDcNumber()).isPresent())
         {
-
+            logger.error("Dc details already exists error..");
             throw new DcAlreadyExistsException("Dc Details Already Exists for the dcNumber::" +dc.getDcNumber());
         }
         return dcRespository.save(dc);
@@ -72,6 +72,7 @@ DcRespository dcRespository;
             dcRespository.deleteById(dcNumber);
         }else
         {
+            logger.error("Dc Details not found..");
             throw new DcNotFoundException("Dc Details not found for this dcNumber::" +dcNumber);
         }
 

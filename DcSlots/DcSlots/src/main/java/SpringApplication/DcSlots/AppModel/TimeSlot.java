@@ -6,8 +6,6 @@ import java.time.LocalTime;
 
 @Component
 public class TimeSlot {
-    private int hours;
-    private int minutes;
     public String dcSlotMethod(int hours, int minutes) {
         LocalTime time1 = LocalTime.of(hours, minutes);
         LocalTime time2 = LocalTime.of(1,0);

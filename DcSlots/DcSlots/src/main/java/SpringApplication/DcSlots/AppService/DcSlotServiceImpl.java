@@ -11,8 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 @Service
 @Slf4j
 
@@ -21,7 +19,6 @@ public class DcSlotServiceImpl implements IdcSlotService {
     DcSlotRepository dcSlotRespository;
     @Autowired
     private TimeSlot timeSlot;
-  private String exceptionMsgForDcSlotAlreadyAvailable;
 
     @Override
     public DcSlots createDcSlots(@RequestBody DcSlots dcslots) throws DcSlotAlreadyExistsException

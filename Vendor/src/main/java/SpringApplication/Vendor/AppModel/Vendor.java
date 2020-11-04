@@ -3,7 +3,6 @@ package SpringApplication.Vendor.AppModel;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.io.Serializable;
 @Data
 @Entity
 @IdClass(VendorId.class)

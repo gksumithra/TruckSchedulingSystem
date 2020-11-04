@@ -36,29 +36,11 @@ public class VendorServiceImpl implements IvendorService{
     @Cacheable(value = "vendor",key = "#vendorEmailId")
     public ResponseEntity<Vendor> getVendorByEmail(String vendorEmailId) throws VendorDetailsNotFoundException {
 
-        Vendor vendor = (Vendor) vendorRespository.findByVendorEmailId(vendorEmailId)
+        Vendor vendor = vendorRespository.findByVendorEmailId(vendorEmailId)
                 .orElseThrow(() -> new VendorDetailsNotFoundException("VEndor Details not found for this EmailId :: " + vendorEmailId));
         return ResponseEntity.ok().body(vendor);
     }
 
-
-
-   /* @Override
-    public ResponseEntity<Vendor> updateVendor(@PathVariable(value = "vendorEmailId") String vendorEmailId, @RequestBody Vendor vendorDetails)
-            throws VendorDetailsNotFoundException {
-
-        if(vendorRespository.findByVendorEmailId(vendorDetails.getVendorEmailId()).isPresent()) {
-            Vendor vendor = vendorRespository.findByVendorEmailId(vendorEmailId).get();
-            vendor.setVendorName(vendor.getVendorName());
-            vendor.setVendorEmailId(vendor.getVendorEmailId());
-            vendor.setVendorPhoneNumber(vendor.getVendorPhoneNumber());
-            vendor.setVendorAddress(vendor.getVendorAddress());
-            final Vendor updatedVendor = vendorRespository.save(vendor);
-           return ResponseEntity.ok(updatedVendor);
-        }
-        throw new VendorDetailsNotFoundException("Vendor not found for this name :: " + vendorEmailId);
-
-    }*/
    @CachePut(value = "vendor",key = "#vendor.vendorEmailId")
    @Override
    public Vendor updateVendor(String vendorEmailId, Vendor vendors) throws VendorDetailsNotFoundException {
@@ -78,7 +60,7 @@ public class VendorServiceImpl implements IvendorService{
     @Override
     public void deleteVendor(@PathVariable(value = "name") String vendorEmailId)
             throws VendorDetailsNotFoundException {
-        Vendor vendor = (Vendor) ((VendorRepository) vendorRespository).findByVendorEmailId(vendorEmailId)
+        Vendor vendor =((VendorRepository) vendorRespository).findByVendorEmailId(vendorEmailId)
                 .orElseThrow(() -> new VendorDetailsNotFoundException("Vendor not found for this name :: " + vendorEmailId));
 
         vendorRespository.delete(vendor);

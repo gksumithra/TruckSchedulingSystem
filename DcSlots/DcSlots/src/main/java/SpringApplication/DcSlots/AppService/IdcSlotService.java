@@ -1,7 +1,6 @@
 package SpringApplication.DcSlots.AppService;
 
 import SpringApplication.DcSlots.AppModel.DcSlots;
-import SpringApplication.DcSlots.AppModel.DcSlotsRequest;
 import SpringApplication.DcSlots.exception.DcSlotAlreadyExistsException;
 import SpringApplication.DcSlots.exception.DcSlotNotFoundException;
 import org.springframework.http.ResponseEntity;

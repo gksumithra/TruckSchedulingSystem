@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = VendorDetailsAlreadyExistsException.class)
-    public ResponseEntity<?> VendorDetailsAlreadyExistsException(VendorDetailsAlreadyExistsException exception){
+    public ResponseEntity<String> VendorDetailsAlreadyExistsException(VendorDetailsAlreadyExistsException exception){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }
 
     @ExceptionHandler(value = VendorDetailsNotFoundException.class)
-    public ResponseEntity<?> VendorDetailsNotFoundException(VendorDetailsNotFoundException exception){
+    public ResponseEntity<String> VendorDetailsNotFoundException(VendorDetailsNotFoundException exception){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }
     @ExceptionHandler(value = Exception.class)
-    public ResponseEntity<?> globalException(Exception exception){
+    public ResponseEntity<String> globalException(Exception exception){
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(exception.getLocalizedMessage());
     }
 }

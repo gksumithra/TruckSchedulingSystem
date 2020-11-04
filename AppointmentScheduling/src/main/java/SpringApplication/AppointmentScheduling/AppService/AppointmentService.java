@@ -9,6 +9,8 @@ import SpringApplication.AppointmentScheduling.AppRestClients.TruckRestClient;
 import SpringApplication.AppointmentScheduling.exception.AppointmentDoesNotExists;
 import feign.FeignException;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -24,9 +26,9 @@ public class AppointmentService {
     DcSlotRestClient dcSlotRestClient;
     @Autowired
     TruckRestClient truckRestClient;
+    Logger logger = LoggerFactory.getLogger(AppointmentService.class);
     public Appointment scheduleAppointment(Appointment appointment)
     {
-        DcSlots dcSlots=dcSlotRestClient.getDcSlotDetailsById(appointment.getDcNumber());
         Truck truck=truckRestClient.getTruckDetailsById(appointment.getTruckNumber());
 
         try {
@@ -35,11 +37,8 @@ public class AppointmentService {
             appointment.setDcNumber(appointment.getDcNumber());
             appointment.setDcSlotNumber(appointment.getDcSlotNumber());
             appointment.setPoNumber(appointment.getPoNumber());
-            /*int count=0;
-                if(dcSlots.getMaxTruckNumber()==count)   {
+            logger.info(truck.getTruckType());
 
-                }*/
-            System.out.println(truck.getTruckType());
             return appointmentRepository.save(appointment);
         }
         catch(FeignException ex) {

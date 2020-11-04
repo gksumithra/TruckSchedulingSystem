@@ -1,9 +1,6 @@
 package spring.application.DistributionCenter.AppModel;
 
-import lombok.Data;
-
 import javax.persistence.*;
-@Data
 @Entity
 @Table(name = "distributioncenter")
 public class DistributionCenter {

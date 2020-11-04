@@ -21,7 +21,7 @@ public class AppointmentController {
         return appointmentService.getAllAppontments();
     }
     @PostMapping
-    public ResponseEntity<?> addAppointment(@RequestBody Appointment appointment)
+    public ResponseEntity<Appointment> addAppointment(@RequestBody Appointment appointment)
     {
         appointmentService.scheduleAppointment(appointment);
         return ResponseEntity.status(HttpStatus.CREATED).body(appointment);
@@ -31,7 +31,7 @@ public class AppointmentController {
         return appointmentService.getAppointmentByTruckNumber(truckNumber);
     }
     @DeleteMapping("/{truckNumber}")
-    public ResponseEntity<?> cancelAppointment(@PathVariable("truckNumber") int truckNumber) throws AppointmentDoesNotExists{
+    public ResponseEntity<Appointment> cancelAppointment(@PathVariable("truckNumber") int truckNumber) throws AppointmentDoesNotExists{
         appointmentService.cancelAppointment(truckNumber);
         return ResponseEntity.ok().build();
     }

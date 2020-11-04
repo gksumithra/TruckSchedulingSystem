@@ -1,7 +1,5 @@
 package SpringApplication.DcSlots.AppModel;
 
-import javax.persistence.Column;
-
 public class DcSlotsRequest {
     private long dcNumber;
     private String dcTimeSlots;

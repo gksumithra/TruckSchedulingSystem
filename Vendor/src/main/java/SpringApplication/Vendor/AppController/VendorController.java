@@ -33,7 +33,7 @@ public class VendorController {
     }
 
     @PutMapping("/{vendorEmailId}")
-    public ResponseEntity<?> updateVendor(@PathVariable(value = "vendorEmailId") String vendorEmailId,@RequestBody Vendor vendor) throws VendorDetailsNotFoundException {
+    public ResponseEntity<Vendor> updateVendor(@PathVariable(value = "vendorEmailId") String vendorEmailId,@RequestBody Vendor vendor) throws VendorDetailsNotFoundException {
         return ResponseEntity.ok(ivendorService.updateVendor(vendorEmailId,vendor));
     }
     @DeleteMapping("/{vendorEmailId}")

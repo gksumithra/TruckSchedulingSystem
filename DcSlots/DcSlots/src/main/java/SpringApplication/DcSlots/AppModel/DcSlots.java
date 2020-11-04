@@ -5,8 +5,6 @@ import javax.persistence.*;
 @Entity
 @Table(name="DcSlots")
 public class DcSlots {
-    /*@ManyToOne
-   private DistributionCenter distributionCenter;*/
     @Id
     private long dcNumber;
     private String dcTimeSlots;

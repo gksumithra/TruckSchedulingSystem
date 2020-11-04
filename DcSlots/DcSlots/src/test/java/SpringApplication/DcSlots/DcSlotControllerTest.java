@@ -37,7 +37,7 @@ public class DcSlotControllerTest {
     ObjectMapper objectMapper= new ObjectMapper();
 
     @Test
-    public void testCreateDcSlot() throws JsonProcessingException, Exception {
+     void testCreateDcSlot() throws JsonProcessingException, Exception {
         DcSlots dcSlots = new DcSlots(2211, "6", 10);
         String URI = "/root/v1/dcslots";
         Mockito.when(dcSlotService.createDcSlots(Mockito.any(DcSlots.class))).thenReturn(dcSlots);
@@ -48,7 +48,7 @@ public class DcSlotControllerTest {
     }
 
     @Test
-    public void testGetAllDcSlot() throws Exception {
+     void testGetAllDcSlot() throws Exception {
         DcSlots dcSlots = new DcSlots(12, "6", 6);
         DcSlots dcSlots1 = new DcSlots(11, "7", 10);
         List<DcSlots> dc = new ArrayList<>();
@@ -64,7 +64,7 @@ public class DcSlotControllerTest {
 
     }
     @Test
-    public void testUpdateDcSlot() throws JsonProcessingException,Exception {
+     void testUpdateDcSlot() throws JsonProcessingException,Exception {
         DcSlots dc= new DcSlots(11,"6",10);
         Mockito.when(dcSlotService.updateDcSlot(11L,dc)).thenReturn(dc);
         mockMvc.perform(put("/root/v1/dcslots/11")
@@ -73,7 +73,7 @@ public class DcSlotControllerTest {
                 .andExpect(status().isOk());
     }
     @Test
-    public void testDeleteDcSlot() throws Exception {
+     void testDeleteDcSlot() throws Exception {
         DcSlots dc= new DcSlots(11,"6",5);
         Mockito.doNothing().when(dcSlotService).deleteDcSlot(Mockito.any(Integer.class));
         dcSlotService.deleteDcSlot(11);
@@ -86,7 +86,7 @@ public class DcSlotControllerTest {
 
     }
     @Test
-    public  void testSearchDcSlotById() throws JsonProcessingException, Exception {
+      void testSearchDcSlotById() throws JsonProcessingException, Exception {
         DcSlots dcslots= new DcSlots(11,"9",12);
         mockMvc.perform(get("/root/v1/dcslots/{dcNumber}",11)
                 .content(objectMapper.writeValueAsString(dcslots))

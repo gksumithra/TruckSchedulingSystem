@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = AppointmentService.class)
@@ -51,6 +51,7 @@ public class AppointmentServiceTest {
         when(appointmentRepository.findById(1)).thenReturn(Optional.of(new Appointment(101,1,101,1001,"2020-04-12")));
 
         ResponseEntity<Appointment> appointmentResponseEntity = appointmentService.getAppointmentByTruckNumber(1);
+        verify(appointmentService, times(1)).getAppointmentByTruckNumber(11);
 
     }
 }

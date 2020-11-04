@@ -1,0 +1,4 @@
+
+Gsquid:S1068"+Remove this unused "message" private field.(ù„è¿ûÿÿÿÿ
+<squid:S1165" Make this "message" field final.(ù„è¿ûÿÿÿÿ
+rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰Ôªï

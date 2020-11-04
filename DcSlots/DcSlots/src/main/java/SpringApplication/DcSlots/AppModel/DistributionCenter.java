@@ -1,8 +1,6 @@
 package SpringApplication.DcSlots.AppModel;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 public class DistributionCenter {
     @Id
     private long dcNumber;
